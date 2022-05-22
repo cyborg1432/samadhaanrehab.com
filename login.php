@@ -1,12 +1,13 @@
 <?php 
     
-$uname = $_POST['password'];
+$uname = $_POST['username'];
 
-$passwd = $_POST['username'];
+$passwd = $_POST['password'];
 
 
 $r_uname = "admin";
 $r_passwd = "rehab";
+
 
 
 if ($uname === $r_uname){

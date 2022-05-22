@@ -14,6 +14,17 @@
     <link rel="stylesheet" href="index.css?ver=1">
     
     <script src="https://kit.fontawesome.com/53a772dbf8.js" crossorigin="anonymous"></script>
+
+<script>
+    var urlString = window.location.search;
+    var urlParams = new URLSearchParams(urlString);
+    var value = urlParams.get('value');
+
+    if(value === "sent"){
+        alert("Your Details have been forwarded to Our Team. We are contacting you within 24-72 hours.")
+    }
+</script>
+
     
 </head>
 <body>
@@ -226,7 +237,7 @@
             </div>
             <div class="inputBox">
                 <h3>Phone Number*</h3>
-               <input type="tel" placeholder="Phone Number" name="phonono" required>
+               <input type="tel" placeholder="Phone Number" name="phoneno" required>
             </div>
             <div class="inputBox">
                 <h3>email</h3>

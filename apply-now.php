@@ -12,15 +12,16 @@ $conn = new mysqli('localhost', 'root', '960ed4e74dcb54cd6363ff4b9bc8206fde0a280
 if ($conn->connect_error){
         die("Connection Failed : " . $conn->connect_error . "<br>");
 }
-echo "Connected Sucessfully";
+//echo "Connected Sucessfully";
 
 //entering data into database
 
 $sql = "INSERT INTO applynow (firstname,lastname,phoneno,email) VALUES ('$firstname','$lastname','$phoneno','$email');";
 
 if ($conn->query($sql) === TRUE){
-        echo "Success";
+//        echo "Success";
+header('Location: http://samadhaanrehab.com/?value=sent');
 }else{
-        echo "Error : " .$sql. "<br>" .$conn->error;
+//        echo "Error : " .$sql. "<br>" .$conn->error;
 }
 ?>
