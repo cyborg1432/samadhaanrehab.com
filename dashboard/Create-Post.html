@@ -76,19 +76,50 @@
         <div class="box">
           <div class="createpost">
               <div class="overview-box"></div>
-                <label class="lebal">Title</label>
-                <input type="text" name="inputs" id="inputs">
-                <label class="lebal">Select file</label>
-                <input type="file" name="inputs" id="inputs">
-                <button class="btn">Submit</button>
-              </div>
+              <div class="d-flex justify-content-center align-self-center" style="margin-top: 115px;">
+                <form action="/dashboard/pdf.php" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+                    <div class="formgroup container-fluid">
+                        <label for="project_name">Project Name</label>
+                        <input type="text" name="project_name"/>
+                    </div>
+                    <div class="formgroup container-fluid">
+                        <input onChange="Upload();" id="myFile" type="file" name="pdf_file" accept=".pdf"/>
+                        <input  type="hidden" name="MAX_FILE_SIZE" value="2710886"/> <!--2 MB's worth in bytes-->
+                    <input id="base64File" type="hidden" name="base64File" ?>
+            
+                    </div>
+                    <div class="formgroup container-fluid">
+                        <label for="submit">Submit To Database</label><br />
+                        <input type="submit" name="Submit">
+            
+                    </div>
+                </form>
+            </div>
+</div>            
           </div>
         </div>
       </div>
     </div>
    </section>
    
-
+<!--Uploader-->
+   <script>
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+    
+    async function Upload() {
+       const file = document.querySelector('#myfile').files[0];
+       document.getElementById("base64File").value =  await JSON.stringify(toBase64(file));
+       var data = await toBase64(file);
+       document.getElementById("base64File").value =  await data;
+    }
+    
+    
+    </script>
 
   <script>
    let sidebar = document.querySelector(".sidebar");
